@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Aivanta  Baby Site of Nexamor
 
 Live Site
@@ -20,8 +19,3 @@ Frontend: React, Vite, JavaScript, CSS
 Hosting: Vercel
 
 Version Control: Git & GitHub
-=======
-to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
->>>>>>> 7c5c512243e530e81e234184d201ad6056b4cc2d
