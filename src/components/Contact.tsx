@@ -1,8 +1,9 @@
+import danishPhoto from './images/danish_png.png';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Send, User, Phone, MapPin, Loader2 } from 'lucide-react';
+import { Send, User, Phone, MapPin, Loader2, Mail } from 'lucide-react';
 import AnimatedGlobe from './AnimatedGlobe';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -174,47 +175,63 @@ const Contact = () => {
             <AnimatedGlobe />
           </div>
         </div>
+{/* Company Info Card */}
+<div
+  ref={infoRef}
+  className={`mt-16 max-w-4xl mx-auto transition-all duration-700 delay-200 ${infoInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+>
+  <div className="bg-card border border-border rounded-xl p-6 sm:p-8 hover:border-accent-glow/30 transition-colors duration-300">
+    <h3 className="font-heading text-xl font-semibold mb-6 text-center">
+      Get in Touch
+    </h3>
+    <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-6">
 
-        {/* Company Info Card */}
-        <div
-          ref={infoRef}
-          className={`mt-16 max-w-2xl mx-auto transition-all duration-700 delay-200 ${infoInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        >
-          <div className="bg-card border border-border rounded-xl p-6 sm:p-8 hover:border-accent-glow/30 transition-colors duration-300">
-            <h3 className="font-heading text-xl font-semibold mb-6 text-center">
-              Get in Touch
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
-                  <User className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Founder</p>
-                  <p className="font-medium">Danish</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="font-medium">Contact Us</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
-                  <MapPin className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Lahore, Pakistan</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Founder */}
+      <div className="flex flex-col items-center">
+        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent-glow">
+          <img
+            src={danishPhoto}
+            alt="Danish"
+            className="w-full h-full object-cover"
+          />
         </div>
+        <p className="text-sm text-muted-foreground mt-2">Founder</p>
+        <p className="font-medium">Danish</p>
+      </div>
+
+      {/* Phone */}
+      <a href="tel:+447510696722" className="flex flex-col items-center group">
+        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
+          <Phone className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
+        </div>
+        <p className="text-sm text-muted-foreground mt-2">Phone</p>
+        <p className="font-medium hover:underline">+44 7510 696722</p>
+      </a>
+
+      {/* Location */}
+      <div className="flex flex-col items-center group">
+        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
+          <MapPin className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
+        </div>
+        <p className="text-sm text-muted-foreground mt-2">Location</p>
+        <p className="font-medium">Lahore, Pakistan</p>
+      </div>
+
+      {/* Email */}
+      <a href="mailto:danish@example.com" className="flex flex-col items-center group">
+        <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center group-hover:bg-accent-glow/20 transition-colors duration-300">
+          <Mail className="w-5 h-5 text-muted-foreground group-hover:text-accent-glow transition-colors duration-300" />
+        </div>
+        <p className="text-sm text-muted-foreground mt-2">Email</p>
+        <p className="font-medium hover:underline">daneshali1039@gmail.com</p>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+
       </div>
     </section>
   );
